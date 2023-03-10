@@ -130,7 +130,7 @@ local sValues = {
     "#00FAB7",  -- 05
     5,          -- 06
     true,      -- 07
-    "https://discord.com/api/webhooks/1082918053282590791/AXAUuNZ3cA_LwNqHEHuRhqFTBMxTy-_PTbsFUksAQeMdo_f7K3YPgcV1M0osUJcfGVZQ",
+    "",
     "3", -- 09
     {"Thanks!!"},
     false,      -- 11
