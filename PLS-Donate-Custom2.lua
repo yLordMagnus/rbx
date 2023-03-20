@@ -73,7 +73,7 @@ local booths = {
 local queueonteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
 local httprequest = (syn and syn.request) or http and http.request or http_request or (fluxus and fluxus.request) or request
 local httpservice = game:GetService('HttpService')
-queueonteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/yLordMagnus/rbx/main/PLS-Donate-Custom2.lua'))()")
+queueonteleport("loadstring(game:HttpGet('https://gist.githubusercontent.com/yLordMagnus/9e13de2c9e3b044a29d676c24345ab56/raw/50a91d0de07380872bd5d84c352a7f59baad2b3e/PLS-DONATE.lua'))()")
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bardium/random/main/plsdonateupdatedversionui"))()
 
 getgenv().updatedVersionSettings = {}
@@ -130,7 +130,7 @@ local sValues = {
     "#00FAB7",  -- 05
     5,          -- 06
     true,      -- 07
-    "",
+    "https://discord.com/api/webhooks/1082918053282590791/AXAUuNZ3cA_LwNqHEHuRhqFTBMxTy-_PTbsFUksAQeMdo_f7K3YPgcV1M0osUJcfGVZQ",
     "3", -- 09
     {"Thanks!!"},
     false,      -- 11
@@ -838,13 +838,19 @@ Players.LocalPlayer.leaderstats.Raised:GetPropertyChangedSignal("Value"):Connect
 		local logs = LogService:GetLogHistory()
 		--Tries to grabs donation message from logs
 		if string.find(logs[#logs].message, Players.LocalPlayer.DisplayName) then
-			webhook(tostring(logs[#logs].message.. " (Total: ".. Players.LocalPlayer.leaderstats.Raised.Value.. ")"))
+
+			local words = {}
+			words[1], words[2] = logs[#logs].message:match("(%w+)(.+)")
+			local tipper = words[1]
+			words[1], words[2] = words[2]
+			words[1], words[2] = words[2]
+			local donatedAmount = words[1]
+
+			webhook(tostring("> ✨ **Doação recebida!** \n`<".. tipper.. ">` doou `R$".. donatedAmount.. " **(`R$" .. Players.LocalPlayer.leaderstats.Raised.Value.. "`)**"))
 		else
-			webhook(tostring("💰 Somebody tipped ".. Players.LocalPlayer.leaderstats.Raised.Value - RaisedC.. " Robux to ".. Players.LocalPlayer.DisplayName.. " (Total: " .. Players.LocalPlayer.leaderstats.Raised.Value.. ")"))
+			webhook(tostring("> ✨ **Doação recebida!** \n`<Desconhecido>` doou `R$".. Players.LocalPlayer.leaderstats.Raised.Value - RaisedC..  "` **(`R$" .. Players.LocalPlayer.leaderstats.Raised.Value.. "`)**"))
 		end
 	end
-
-	--serverWebhook("Someone using one of thee free PLS Donate scripts earned: "..tostring(Players.LocalPlayer.leaderstats.Raised.Value - RaisedC).." robux!")
 
 	if getgenv().updatedVersionSettings.autoDie and not getgenv().updatedVersionSettings.autoJump then
 		task.wait(getgenv().updatedVersionSettings.deathDelay)
@@ -858,9 +864,7 @@ Players.LocalPlayer.leaderstats.Raised:GetPropertyChangedSignal("Value"):Connect
 	update()
 end)
 update()
-if game:GetService("CoreGui").imgui.Windows.Window.Title.Text == "Loading..." then
-	game:GetService("CoreGui").imgui.Windows.Window.Title.Text = "PLS DONATE - Goose Better#9356"
-end
+
 while task.wait(getgenv().updatedVersionSettings.serverHopDelay * 60) do
 	if not hopTimer then
 		hopSet()
