@@ -73,7 +73,7 @@ local booths = {
 local queueonteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
 local httprequest = (syn and syn.request) or http and http.request or http_request or (fluxus and fluxus.request) or request
 local httpservice = game:GetService('HttpService')
-queueonteleport("loadstring(game:HttpGet('https://gist.githubusercontent.com/yLordMagnus/9e13de2c9e3b044a29d676c24345ab56/raw/50a91d0de07380872bd5d84c352a7f59baad2b3e/PLS-DONATE.lua'))()")
+queueonteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/yLordMagnus/rbx/main/PLS-Donate-Custom2.lua'))()")
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bardium/random/main/plsdonateupdatedversionui"))()
 
 getgenv().updatedVersionSettings = {}
@@ -130,7 +130,7 @@ local sValues = {
     "#00FAB7",  -- 05
     5,          -- 06
     true,      -- 07
-    "https://discord.com/api/webhooks/1082918053282590791/AXAUuNZ3cA_LwNqHEHuRhqFTBMxTy-_PTbsFUksAQeMdo_f7K3YPgcV1M0osUJcfGVZQ",
+    "",
     "3", -- 09
     {"Thanks!!"},
     false,      -- 11
