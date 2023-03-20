@@ -841,10 +841,17 @@ Players.LocalPlayer.leaderstats.Raised:GetPropertyChangedSignal("Value"):Connect
 
 			local words = {}
 			words[1], words[2] = logs[#logs].message:match("(%w+)(.+)")
+			
 			local tipper = words[1]
+			if tipper == nil or tipper == '' then
+				tipper = "nil"
+					
 			words[1], words[2] = words[2]
 			words[1], words[2] = words[2]
+			
 			local donatedAmount = words[1]
+			if donatedAmount == nil or donatedAmount == '' then
+				donatedAmount = "nil"
 
 			webhook(tostring("> ✨ **Doação recebida!** \n`<".. tipper.. ">` doou `R$".. donatedAmount.. " **(`R$" .. Players.LocalPlayer.leaderstats.Raised.Value.. "`)**"))
 		else
