@@ -855,7 +855,7 @@ Players.LocalPlayer.leaderstats.Raised:GetPropertyChangedSignal("Value"):Connect
 				donatedAmount = "nil"
 			end
 
-			webhook(tostring("> ✨ **Doação recebida!** \n**`".. tipper.. "`** doou **`R$".. donatedAmount.. "** (`R$" .. Players.LocalPlayer.leaderstats.Raised.Value.. "`)"))
+			webhook(tostring("> ✨ **Doação recebida!** \n**`".. tipper.. "`** doou **`R$".. donatedAmount.. "`** (`R$" .. Players.LocalPlayer.leaderstats.Raised.Value.. "`)"))
 		else
 			webhook(tostring("> ✨ **Doação recebida!** \n`<Desconhecido>` doou `R$".. Players.LocalPlayer.leaderstats.Raised.Value - RaisedC..  "` **(`R$" .. Players.LocalPlayer.leaderstats.Raised.Value.. "`)**"))
 		end
